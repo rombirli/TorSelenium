@@ -1,13 +1,15 @@
 import subprocess
 from pathlib import Path
-import shutil
+from os import makedirs
+from shutil import copytree, rmtree
 
 # !! ntorlib has its own config !!
 socks_port_start = 3210
 httptunel_start_port = 9051
-temp_data = r'res\temp'  # a directory : where to store temp Data directories (proxy port modified)
-orig_data = r'res\Data'  # a directory : where to get original Data directory (proxy port not modified)
-tor_exe = r'res\tor.exe'  # a file : where is tor.exe
+lib_name='ntorlib'
+temp_data = fr'{lib_name}\res\temp'  # a directory : where to store temp Data directories (proxy port modified)
+orig_data = fr'{lib_name}\res\Data'  # a directory : where to get original Data directory (proxy port not modified)
+tor_exe = fr'{lib_name}\res\tor.exe'  # a file : where is tor.exe
 
 
 def path_torcc(i: int): return fr'{temp_data}\torcc{i}'
@@ -44,7 +46,7 @@ def create_n_dependencies(n) -> None:
             )
 
     def create_data_dir(i: int):
-        shutil.copytree(orig_data, f'{temp_data}/Data{i}')
+        copytree(orig_data, f'{temp_data}/Data{i}')
 
     for i in range(n):
         if not check_torcc(i): create_torcc(i)
@@ -72,7 +74,5 @@ def clean_dependencies():
     You can choose to call it or not. If you don't, the existing datas will not be overwritten when calling create_n_dependencies
     :return: None
     """
-    if Path(temp_data).exists() and Path(temp_data).is_dir():
-        shutil.rmtree(temp_data)
-    import os
-    os.makedirs(temp_data)
+    rmtree(temp_data)
+    makedirs(temp_data)
