@@ -1,7 +1,7 @@
 import subprocess
 from os import makedirs
 from shutil import copytree, rmtree
-
+from typing import List
 from ntorlib.utils import *
 
 
@@ -21,7 +21,7 @@ def create_n_dependencies(n) -> None:
         if not check_data_dir(i): create_data_dir(i)
 
 
-def run_n_tor(n):
+def run_n_tor(n: int) -> List[subprocess.Popen[str]]:
     """
     Run n tor instances into n threads. You must create dependencies before calling this function
     You can't call this function again without killing those threads.
@@ -29,9 +29,18 @@ def run_n_tor(n):
     :param n: How many instances of tor to run
     :return: tor threads as a List[Popen[Str]]
     """
+    return [run_1_tor(i) for i in range(n)]
 
-    return [subprocess.Popen(get_tor_launch_line(i), stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT) for i in
-            range(n)]
+
+def run_1_tor(i: int) -> subprocess.Popen[str]:
+    """
+    Run 1 tor instances into 1 thread. You must create dependencies for n>i before calling this function for i
+    You can't call this function again with the same i without killing this thread.
+    Otherwise the new tor sessions will have the same proxy port as old session and will crash.
+    :param i: which tor thread will you creat
+    :return: tor threads as a Popen[Str]
+    """
+    return subprocess.Popen(get_tor_launch_line(i), stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
 
 def get_proxy(i: int):

@@ -1,20 +1,26 @@
-from config import N_ITER, N_THREADS, CHROME_DRIVER, BOT_FUNCTION, TIMEOUT
-from fake_useragent.fake import UserAgent
-from selenium.webdriver import Chrome, ChromeOptions
 from threading import Thread
+
+from config import N_ITER, N_THREADS, CHROME_DRIVER, BOT_FUNCTION, TIMEOUT
+from config import CHROME_DRIVER
+from selenium.webdriver import Chrome, ChromeOptions
+from ntorlib.ntorlib import get_proxy
 from utils import join_all
 from ntorlib.ntorlib import get_proxy, clean_dependencies, create_n_dependencies, run_n_tor
+from dummy_useragent import UserAgent
 
-ua = UserAgent(fallback='-')
+ua = UserAgent()
+
+
+def create_browser(i: int, user_agent=None):
+    if (user_agent is None):
+        user_agent = ua.random()
+    options = ChromeOptions()
+    options.add_argument(f'--proxy-server={get_proxy(i)}')
+    options.add_argument(f'--user-agent={user_agent}')
+    return Chrome(executable_path=CHROME_DRIVER, options=options)
 
 
 def create_thread(i: int):
-    def create_browser(i: int):
-        options = ChromeOptions()
-        options.add_argument(f'--proxy-server={get_proxy(i)}')
-        options.add_argument(f'--user-agent={ua.update()}')
-        return Chrome(executable_path=CHROME_DRIVER, options=options)
-
     def f():
         try:
             b = create_browser(i)
