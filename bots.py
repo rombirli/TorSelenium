@@ -23,7 +23,7 @@ def lematin_unlike(browser: WebDriver) -> None:
     for elem in browser.find_elements_by_class_name('RatingItem_downRating__1fLK-'):
         for elem in browser.find_elements_by_class_name(
                 'sc-1r4h1lh-2 jaCRUZ'):  # try to close every popup before every click
-            browser.execute_script("arguments[0].click();", elem)
+            click2(browser, elem)
             print('closed a popup')
-        browser.execute_script("arguments[0].click();",elem)  # instead of elem.click because of this : https://stackoverflow.com/questions/56194094/how-to-fix-this-issue-element-not-interactable-selenium-python
+        click2(browser, elem)  #
     print('One 3-dislike serie more for le matin :)')
