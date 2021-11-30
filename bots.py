@@ -1,21 +1,9 @@
-import time
 from time import sleep
 from random import random
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
 
 
 ############################# HELPER FUNCTIONS & OBJECTS #############################
-class Counter:
-    i: int = 0
-
-    def inc(self) -> int:
-        self.i = self.i + 1
-        return self.i
-
-
-counter = Counter()
-
-
 def click2(browser: WebDriver, elem: WebElement) -> None:
     """
     To fix not interactable error
@@ -35,7 +23,7 @@ def print_ip(browser: WebDriver) -> None:
 
 def randsleep(min_t: float, max_t: float) -> None:
     dt = max_t - min_t
-    time.sleep(min_t + dt * random())
+    sleep(min_t + dt * random())
 
 
 ################################ BOTS ################################
@@ -47,8 +35,6 @@ def lematin_dislike(browser: WebDriver) -> None:
     for elem in elems:
         for elem in browser.find_elements_by_class_name('sc-1r4h1lh-2 jaCRUZ'):  # try to close every popup before every click
             click2(browser, elem)
-            print('closed a popup')
+            print('\tclosed a popup')
         randsleep(0, 3)
         click2(browser, elem)
-    if len(elems) > 0:
-        print(f'{counter.inc()} dislikes for le matin')
