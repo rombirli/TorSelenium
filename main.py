@@ -1,10 +1,10 @@
-from threading import Thread
+import time
+from subprocess import Popen
+from sys import argv
 
 from config import N_ITER, N_THREADS, CHROME_DRIVER, BOT_FUNCTION, TIMEOUT
 from config import CHROME_DRIVER
 from selenium.webdriver import Chrome, ChromeOptions
-from ntorlib.ntorlib import get_proxy
-from utils import join_all
 from ntorlib.ntorlib import get_proxy, clean_dependencies, create_n_dependencies, run_n_tor
 from dummy_useragent import UserAgent
 
@@ -20,7 +20,7 @@ def create_browser(i: int, user_agent=None):
     return Chrome(executable_path=CHROME_DRIVER, options=options)
 
 
-def create_thread(i: int):
+def create_bot_process(i: int):
     def f():
         try:
             b = create_browser(i)
@@ -29,20 +29,23 @@ def create_thread(i: int):
         except:
             print(f'A problem happened with thread {i}')
 
-    return Thread(target=f)
+    return Popen(['python', 'botprocess.py', str(i)])
 
 
-def run():
+def run_main():
     clean_dependencies()
     create_n_dependencies(N_THREADS)
     for k in range(0, N_ITER, N_THREADS):
         tor_threads = run_n_tor(N_THREADS)
-        bot_threads = list(map(create_thread, range(N_THREADS)))
-        for thread in bot_threads:
-            thread.start()
-        join_all(bot_threads, TIMEOUT)
-        for thread in tor_threads:
-            thread.kill()
+        bot_threads = list(map(create_bot_process, range(N_THREADS)))
+        time.sleep(TIMEOUT)
+        for bot_thread, tor_thread in zip(bot_threads, tor_threads):
+            bot_thread.kill()
+            tor_thread.kill()
 
 
-run()
+if len(argv) > 2 and argv[1] == 'slave':
+    t_id = int(argv[2])
+
+else:
+    run_main()
