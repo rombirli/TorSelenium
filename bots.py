@@ -31,10 +31,20 @@ def lematin_dislike(browser: WebDriver) -> None:
     print_useragent(browser)
     print_ip(browser)
     browser.get("https://www.lematin.ch/story/8422-nouveaux-cas-enregistres-en-suisse-22-morts-834462679038")
-    elems = browser.find_elements_by_class_name('RatingItem_downRating__1fLK-')
-    for elem in elems:
-        for elem in browser.find_elements_by_class_name('sc-1r4h1lh-2 jaCRUZ'):  # try to close every popup before every click
-            click2(browser, elem)
+    dislike_buttons = browser.find_elements_by_class_name('RatingItem_downRating__1fLK-')
+    print(f'found {len(dislike_buttons)} dislike buttons on this page')
+    sleep(10)
+    for dislike_button in dislike_buttons:
+        randsleep(0, 1.5)
+        for popup_close_x in browser.find_elements_by_class_name('sc-1r4h1lh-2 jaCRUZ'):  # try to close every popup before every click
+            click2(browser, popup_close_x)
             print('\tclosed a popup')
-        randsleep(0, 3)
-        click2(browser, elem)
+        randsleep(0, 1.5)
+        click2(browser, dislike_button)
+
+def adfly_click(browser:WebDriver)->None :
+    #login :
+    # email=zusmmuzozxeapdcvev@nvhrw.com
+    # password=zusmmuzozxeapdcvev@nvhrw.com1
+    browser.get('http://fumacrom.com/366Z6')
+    click2(browser, browser.find_element_by_id('skip_bu2tton'))

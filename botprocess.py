@@ -17,7 +17,6 @@ def create_browser(i: int, user_agent=None):
     return Chrome(executable_path=CHROME_DRIVER, options=options)
 
 
-print(argv)
 if len(argv) == 2:
     i = int(argv[1])
     try:

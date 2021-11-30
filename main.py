@@ -1,5 +1,4 @@
-import time
-from subprocess import Popen, check_output, STDOUT
+from subprocess import Popen
 from sys import argv
 
 from config import N_ITER, N_THREADS, TIMEOUT
@@ -24,8 +23,4 @@ def run_main():
             tor_thread.kill()
 
 
-if len(argv) > 2 and argv[1] == 'slave':
-    t_id = int(argv[2])
-
-else:
-    run_main()
+run_main()
