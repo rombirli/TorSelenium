@@ -1,0 +1,27 @@
+# Tor state file last generated on 2021-11-30 18:30:56 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+Dormant 0
+Guard in=default rsa_id=2AA5F598F9A1812F01CD99E3B59BB87362ED7438 nickname=setsun sampled_on=2021-11-25T19:00:27 sampled_idx=0 sampled_by=0.4.6.8 listed=1 confirmed_on=2021-11-30T15:33:47 confirmed_idx=2
+Guard in=default rsa_id=77A56CB237740E24AEA2D61C8C8936232AFC1BD8 nickname=TheEpTicZeus sampled_on=2021-11-24T08:43:57 sampled_idx=1 sampled_by=0.4.6.8 listed=1 confirmed_on=2021-11-22T07:37:09 confirmed_idx=1
+Guard in=default rsa_id=8421AEB2D6F570F155BCF595070DC6C4657BD033 nickname=bauruine sampled_on=2021-11-29T15:23:43 sampled_idx=2 sampled_by=0.4.6.8 listed=1 confirmed_on=2021-11-29T19:20:26 confirmed_idx=0
+Guard in=default rsa_id=7376A24FFD82EF36CF1894FC887A6EBD8E9752C8 nickname=6cloudnotes6 sampled_on=2021-11-27T15:10:47 sampled_idx=3 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=AECF23413E12738380C7B61E0AF5126D47DF30E3 nickname=HyunJin sampled_on=2021-11-21T06:33:06 sampled_idx=4 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=5EBF67F71714662ABF75BF8B7E69F330F57A72B2 nickname=MyRhino sampled_on=2021-11-21T09:24:26 sampled_idx=5 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=0935BA9178F9E3B50C99DD53F723865FC224CFA8 nickname=SevenLayers sampled_on=2021-11-29T21:05:32 sampled_idx=6 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=12D552E8AF7AA2B71B218B5BBF6A5FEFA6F26BA0 nickname=TOR2DFNrelA sampled_on=2021-11-22T21:11:19 sampled_idx=7 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=65CD45F3FAB6CCE8D71A5A9D2EE010A52B369068 nickname=RelayTexas4Tor sampled_on=2021-11-24T16:03:12 sampled_idx=8 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=C8DE26D2D119BE7F509E672EE1A3D5FB25DCBA97 nickname=pros1 sampled_on=2021-11-28T01:03:26 sampled_idx=9 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=7168531C69ED651A12D20B2AC2BD61C1BC7F5CC0 nickname=winterwonderland44 sampled_on=2021-11-23T14:19:30 sampled_idx=10 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=0C3D5E19E3C75B505C8ACD26F89DCA2DF970553E nickname=HORUS1 sampled_on=2021-11-26T01:04:29 sampled_idx=11 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=014E24C0CD21D2B9829E841D5EC1D3C415F866BF nickname=8ac97a37 sampled_on=2021-11-20T03:35:40 sampled_idx=12 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=9B5ED3370E002AEBB2A9B25E3213C1817CCD2D88 nickname=fleischgewehr sampled_on=2021-11-30T14:27:07 sampled_idx=13 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=D405FCCF06ADEDF898DF2F29C9348DCB623031BA nickname=gGDHjdcC6zAlM8k08lY sampled_on=2021-11-20T12:46:06 sampled_idx=14 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=EF3B3454B87A545484E1065BB8B846D45A9DA550 nickname=outerhaven sampled_on=2021-11-23T16:02:51 sampled_idx=15 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=AA7630738F82C4DF26BB8EFF131564DACDEAC64C nickname=Unnamed sampled_on=2021-11-30T00:37:48 sampled_idx=16 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=36EE8D47E570B8D5515460A9972F3CFD9EDFDFCE nickname=R1610091651 sampled_on=2021-11-28T09:37:09 sampled_idx=17 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=D1B1A550FEE3A05E71CA9080D14CCA3B746C0C17 nickname=Icicle sampled_on=2021-11-21T14:38:51 sampled_idx=18 sampled_by=0.4.6.8 listed=1
+Guard in=default rsa_id=CA45F54BD5C2158EE2E64C9433585EDC84B0E142 nickname=DTFNODE40 sampled_on=2021-11-19T20:11:23 sampled_idx=19 sampled_by=0.4.6.8 listed=1
+LastWritten 2021-11-30 17:30:56
+TorVersion Tor 0.4.6.8 (git-d5efc2c98619568e)

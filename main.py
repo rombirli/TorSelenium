@@ -3,9 +3,11 @@ from fake_useragent.fake import UserAgent
 from selenium.webdriver import Chrome, ChromeOptions
 from threading import Thread
 
-from ntorlib import get_proxy, clean_dependencies, create_n_dependencies, run_n_tor
+from ntorlib.ntorlib import get_proxy, clean_dependencies, create_n_dependencies, run_n_tor
 
-ua=UserAgent(fallback='-')
+ua = UserAgent(fallback='-')
+
+
 def create_thread(i: int):
     def create_browser(i: int):
         options = ChromeOptions()
@@ -14,11 +16,12 @@ def create_thread(i: int):
         return Chrome(executable_path=CHROME_DRIVER, options=options)
 
     def f():
-        try :
+        try:
             b = create_browser(i)
             BOT_FUNCTION(b)
             b.quit()
-        except : print(f'A problem happened with thread {i}')
+        except:
+            print(f'A problem happened with thread {i}')
 
     return Thread(target=f)
 
