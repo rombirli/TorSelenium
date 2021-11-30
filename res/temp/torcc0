@@ -1,0 +1,5 @@
+
+        SocksListenAddress 127.0.0.1:9051
+        HTTPTunnelPort 9051
+        SocksPort 3210
+                
