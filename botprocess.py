@@ -13,18 +13,19 @@ def create_browser(i: int, user_agent=None):
         user_agent = ua.random()
     options = ChromeOptions()
     options.add_argument(f'--proxy-server={get_proxy(i)}')
-    options.add_argument(f'--user-agent={user_agent}')
+    # options.add_argument(f'--user-agent={user_agent}')
     return Chrome(executable_path=CHROME_DRIVER, options=options)
 
 
 if len(argv) == 2:
     i = int(argv[1])
+    b = create_browser(i)
     try:
-        b = create_browser(i)
         BOT_FUNCTION(b)
-        b.quit()
     except:
         print(f'A problem happened with botprocess {i}')
+    b.quit()
+
 else:
     print(f'Error launching a botprocess')
 
